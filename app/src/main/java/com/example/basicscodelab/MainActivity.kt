@@ -38,7 +38,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.basicscodelab.ui.theme.BasicsCodelabTheme
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,8 +64,7 @@ fun MyApp(modifier: Modifier = Modifier) {
 
 @Composable
 fun OnboardingScreen(
-    onContinueClicked: () -> Unit,
-    modifier: Modifier = Modifier
+    onContinueClicked: () -> Unit, modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier.fillMaxSize(),
@@ -75,8 +73,7 @@ fun OnboardingScreen(
     ) {
         Text("Welcome to the Basics Codelab!")
         Button(
-            modifier = Modifier.padding(vertical = 24.dp),
-            onClick = onContinueClicked
+            modifier = Modifier.padding(vertical = 24.dp), onClick = onContinueClicked
         ) {
             Text("Continue")
         }
@@ -85,8 +82,7 @@ fun OnboardingScreen(
 
 @Composable
 private fun Greetings(
-    modifier: Modifier = Modifier,
-    names: List<String> = List(1000) { "$it" }
+    modifier: Modifier = Modifier, names: List<String> = List(1000) { "$it" }
 ) {
     LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
         items(items = names) { name ->
@@ -100,8 +96,7 @@ private fun Greeting(name: String, modifier: Modifier = Modifier) {
     Card(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
-        ),
-        modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+        ), modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
         CardContent(name)
     }
@@ -116,8 +111,7 @@ private fun CardContent(name: String) {
             .padding(12.dp)
             .animateContentSize(
                 animationSpec = spring(
-                    dampingRatio = Spring.DampingRatioMediumBouncy,
-                    stiffness = Spring.StiffnessLow
+                    dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessLow
                 )
             )
     ) {
@@ -134,8 +128,9 @@ private fun CardContent(name: String) {
             )
             if (expanded) {
                 Text(
-                    text = ("Composem ipsum color sit lazy, " +
-                            "padding theme elit, sed do bouncy. ").repeat(4),
+                    text = ("Composem ipsum color sit lazy, " + "padding theme elit, sed do bouncy. ").repeat(
+                        4
+                    ),
                 )
             }
         }
@@ -156,9 +151,11 @@ private fun CardContent(name: String) {
     showBackground = true,
     widthDp = 320,
     uiMode = UI_MODE_NIGHT_YES,
-    name = "GreetingPreviewDark"
+    name = "Dark Mode GreetingPreview"
 )
-@Preview(showBackground = true, widthDp = 320)
+@Preview(
+    showBackground = true, widthDp = 320, name = "Light Mode GreetingPreview"
+)
 @Composable
 fun GreetingPreview() {
     BasicsCodelabTheme {
